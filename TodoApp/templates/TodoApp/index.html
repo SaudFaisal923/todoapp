@@ -1,0 +1,17 @@
+{%extends "TodoApp/base.html"%}
+{%block content%}
+<div class="container p-3 text-center fixed">
+<h3>New Task</h3>
+</div>
+<div class="container">
+<form method="POST" action="{%url 'createtask'%}">                                                    
+{%csrf_token%}
+{{Userform}}
+ <input type="submit" class="btn btn-success" value ="Add">
+</form>
+
+</div>
+{%endblock%}
+
+
+

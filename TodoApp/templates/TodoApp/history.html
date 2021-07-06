@@ -1,0 +1,38 @@
+
+{%extends "TodoApp/base.html"%}
+{%block content%}
+<div class="container p-3 text-center fixed">
+<h3>History</h3>
+</div>
+<div class="container ">
+{%for x in obj%}
+  {%if x.status%}
+  <div class="card" id="card">
+    <div class="card-header bg-info" id="show">{{x.title}}<a class="text-white justify-content-right" href="{%url 'deletetask' x.id%}">×</a>
+  </div>
+    <div class="card-body">{{x.tasks}}</div>
+    <div class="card-footer bg-white">
+     <span class="text-left">{{x.startdate}}</span>
+     <span class="text-right">{{x.enddate}}</span>
+     </div>
+   </div>
+   {%endif%}
+{%endfor%}
+</div>
+
+<!-- Latest compiled and minified CSS 
+{% load tz %}
+        {%if  x.enddate < y %}
+        <h1>good</h1>
+        {%else%}
+        <h1>nothing</h1>
+        {%endif%}
+        {% now "jS F Y H:i"|utc %}<br>
+        {% now "jS F Y H:i"|localtime%}<br>-->
+{%endblock%}
+
+
+
+
+
+

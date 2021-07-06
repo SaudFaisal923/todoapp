@@ -1,0 +1,29 @@
+{% extends "TodoApp/base.html"%}
+{%load tz%}
+
+{%block content%}
+<div class="container p-3 text-center fixed">
+<h3>Task To Achieve</h3>
+</div>
+  {%for x in obj%}
+  {%if not x.status%}
+<div class="card m-2" id="card">
+  <div class="card-body">
+    <h4 class="card-title">{{x.title}}</h4>
+    <span class="badge badge-primary">{{x.task_type}}</span>
+    <p class="card-text">{{x.tasks}}</p>
+    <span class="badge badge-primary">Start Date {{x.startdate}}</span>          
+    <span class="badge badge-primary">End Date {{x.enddate}}</span>       
+    <span class="badge badge-primary">Time Remaining {{x.diff_date}} </span>                
+
+    <button type="button" class="btn btn-success rounded-sm"><a class="link" href="{%url 'completetask' x.id%}">Complete</a></button>  
+  {%endif%}
+  </div>
+</div>
+  {%endfor%}
+  </br></br>
+<a class="rounded-circle"id="demo" href="createtask/">+</a>
+{%endblock%}
+
+
+
